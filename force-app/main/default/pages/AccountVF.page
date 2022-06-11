@@ -1,0 +1,5 @@
+<apex:page contentType="application/msword#filename.doc" >
+    <h1>
+           Hello
+        </h1>
+</apex:page>

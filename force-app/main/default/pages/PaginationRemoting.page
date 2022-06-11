@@ -1,0 +1,32 @@
+<apex:page controller="PaginationController" >
+    <head>
+        <apex:includeScript value="//code.jquery.com/jquery-2.2.4.min.js"/>
+        <apex:stylesheet value="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
+        <apex:includeScript value="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"/>
+        <script type="text/javascript">
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.PaginationController.getRecord}',
+            function(result, event){
+                if(event.status){
+                    var mytableStart='<table id="Mytb" >';
+                    var mytablehead= '<thead><tr><th>Id</th><th>Name</th><th>Industry</th><th>Rating</th></tr></thead><tbody>';
+                    var mytablebody='';
+                    for(var i=0;i<result.length;i++){
+                        mytablebody+='<tr><td>'+result[i].Id+'</td><td>'+result[i].Name+'</td><td>'+result[i].Industry+'</td><td>'+result[i].Rating+'</td></tr>';
+                    }
+                    var mytableEnd='</tbody></table>';
+                    mytablebody+=mytableEnd;
+                    mytablehead+=mytablebody;
+                    mytableStart+=mytablehead;
+                    document.getElementById('MyTableDiv').innerHTML=mytableStart;
+                     $('#Mytb').DataTable();
+                }
+            }, 
+            {escape: true}
+        );
+        </script>
+    </head>
+    <div id="MyTableDiv" >
+        
+    </div>
+</apex:page>

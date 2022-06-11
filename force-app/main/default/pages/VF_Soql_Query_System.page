@@ -1,0 +1,5 @@
+<apex:page controller="Soql_Result_Controller" >
+    <apex:form >
+        <apex:inputTextarea cols="50" rows="10"/>
+    </apex:form>
+</apex:page>

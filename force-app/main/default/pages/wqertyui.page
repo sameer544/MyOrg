@@ -1,0 +1,16 @@
+<apex:page action="{!downdoc}" controller="qwertyu" >
+    <html>
+        <script  type="text/javascript">
+        debugger;
+        var jsonList = {!valueData};
+        const csvString = jsonList[0].replace('"','');;
+        var hiddenElement = document.createElement('a');
+        hiddenElement.href = 'data:text/doc;charset=utf-8,' + encodeURI(csvString);
+        hiddenElement.target = '_self'; //
+        hiddenElement.download = 'MoCSVFile.doc';
+        document.body.appendChild(hiddenElement); // Required for FireFox browser
+        hiddenElement.click();
+        </script>
+    </html>
+   
+</apex:page>

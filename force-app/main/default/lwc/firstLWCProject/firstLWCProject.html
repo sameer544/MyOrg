@@ -1,0 +1,46 @@
+<template>
+   <!--  <lightning-card variant="narrow" icon-name="standard:opportunity">
+       <h1 slot="title">This is a title</h1>
+        <h1>This is the body</h1>
+        <div slot="actions">
+            <lightning-input label="Name value" onchange={changeHandler} onclick={onclickMethod} value={nameValue} > </lightning-input>
+            <lightning-button-icon icon-name="utility:down"></lightning-button-icon>
+        </div>
+        <div slot="footer">
+            <h6>This is the footer</h6>
+        </div>
+        <div>
+          name value  {nameValue}
+        </div>
+        <div>
+            new value {newValue}
+        </div>
+        
+        {schName}
+        <template if:true={ifValue} >
+        <template for:each={contacts.data} for:item='item'>
+            <p key={item.id}>{item.Name}</p>
+        </template>
+    </template>
+    <lightning-button label='hide contacts' onclick={onclickMethod} ></lightning-button>
+    <lightning-button label='show contacts' onclick={onclickMethod1} ></lightning-button>
+    </lightning-card>-->
+    <lightning-card variant="narrow" icon-name="standard:Search" >
+        <div class="slds-m-around_medium">
+            <lightning-input type="search" onchange={handleKeyChange} class="slds-m-bottom_small" label="Search" value={searchKey}></lightning-input>
+            <template if:true={contacts.data}>
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>First Name</th>
+                    </tr>
+                <template for:each={contacts.data} for:item="contact">
+                    <tr key={contact.Id} >
+                        <td>{contact.Name}</td>
+                    </tr>
+                </template>
+            </table>
+            </template>
+        </div>
+</lightning-card>
+</template>

@@ -1,0 +1,6 @@
+<apex:page controller="wertyhController" >
+    <apex:repeat value="{!mapvar}" var="var">
+       Key: <p>{!var}</p>
+        value:<p>{!mapvar[var]} </p>
+    </apex:repeat>
+</apex:page>

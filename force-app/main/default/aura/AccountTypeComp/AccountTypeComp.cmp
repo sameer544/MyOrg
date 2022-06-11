@@ -1,0 +1,11 @@
+<aura:component controller="AccountTypeCompController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="MapAccount" type="List"/>
+    <aura:handler name="init" value="{!this}" action="{!c.myAction}"/>
+    <aura:iteration items="{!v.MapAccount}" var="type" >
+        <li> {!type.Key}</li>
+        <aura:iteration items="{!type.accList}" var="listvalue" >
+            <li>Name : {!listvalue.Name} rating : {!listvalue.Rating}</li>
+            
+        </aura:iteration>
+    </aura:iteration>
+</aura:component>

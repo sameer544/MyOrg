@@ -1,0 +1,35 @@
+<apex:page controller="Approval_Controller" >
+    <apex:form >
+    <apex:pageBlock >
+        <table>
+            <tr>
+                <th>Write a Comment</th>
+                <td><apex:inputTextarea required="true" value="{!comments}" /></td>
+            </tr>
+            <tr>
+                <th>Select Action</th>
+                <td><apex:selectList value="{!selectedaction}" required="true" size="1" >
+                <apex:selectOptions value="{!selectActionPickList}" ></apex:selectOptions>
+            </apex:selectList></td>
+            </tr>
+            <tr style="text-align:right;" >
+                <td><apex:commandButton action="{!ApproveAllRecord}" value="Submit" /></td>
+            </tr>
+            <tr><td><br/></td></tr>
+            <tr>
+                <th>Record Name</th>
+                <th>Status</th>
+            </tr>
+            <tr>
+                <td><apex:outputLabel rendered="{!rendardNorecord}" >No Records for Approval</apex:outputLabel></td>
+            </tr>
+            <apex:repeat value="{!procinst}" var="ob" >
+                <tr>
+                    <td><apex:outputField value="{!ob.TargetObjectId}"  /></td>
+                    <td><apex:outputField value="{!ob.status}"  /></td>
+                </tr>
+            </apex:repeat>
+        </table>
+    </apex:pageBlock>
+        </apex:form>
+</apex:page>

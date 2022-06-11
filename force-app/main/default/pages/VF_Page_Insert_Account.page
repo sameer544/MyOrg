@@ -1,0 +1,72 @@
+<apex:page controller="Controller_AccountList" docType="HTML-5.0"  >
+    <style>
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+    
+    <apex:form id="Myre"  >
+     <apex:pageBlock >
+    <table id="customers">
+        <tr>
+            <th>S/No</th>
+            <th>Name</th>
+            <th>Industry</th>
+            <th>Rating</th>
+            <th>Account Number</th>
+            <th>Add</th>
+            <th>Remove</th>
+        </tr>
+                     <apex:variable value="{!1}" var="SN" />
+         <apex:repeat value="{!TempAccount}" var="TeAccount" >
+       	<tr>
+
+            <th>{!SN}</th>
+            <td><apex:inputfield value="{!TeAccount.Name}" /> </td>
+            <td><apex:inputField value="{!TeAccount.Industry}" /> </td>  
+           	<td><apex:inputField value="{!TeAccount.rating}" /> </td>  
+            <td><apex:inputField value="{!TeAccount.AccountNumber}" /> </td>  
+            <td>
+                <apex:commandButton value="Add Account" image="{!urlfor($Resource.Sign_Logo,'sign/addition_sign.png')}" style="width:20px" action="{!AddAccount}" reRender="Myre" >
+                <apex:param name="Index" value="{!SN}" />
+                </apex:commandButton>
+            </td>
+            <td><apex:commandButton value="Remove Account" image="{!urlfor($Resource.Sign_Logo,'sign/subtraction_sign.png')}" style="width:20px" action="{!removeAccount}" disabled="{!removeButton}" reRender="Myre" >
+                <apex:param name="Index" value="{!SN}" />
+                </apex:commandButton> </td>
+            <apex:variable value="{!SN+1}" var="SN" />
+        </tr>
+             
+              </apex:repeat>    
+       
+    </table>
+         <div>
+             <apex:pageBlockButtons >
+                 <apex:commandButton value="Save" action="{!saveAllAccount}"  reRender="Myre" />
+                 <apex:commandButton value="Cancel" action="{!cancelsave}" reRender="Myre" />
+                 </apex:pageBlockButtons>
+             </div>
+         
+           </apex:pageBlock>
+        </apex:form>
+    
+</apex:page>

@@ -1,0 +1,53 @@
+<apex:page tabStyle="Account" standardController="Account" docType="html-5.0">
+     <apex:form >
+    <apex:sectionHeader title="Account Edit" subtitle="New Account" help="https:www.google.com"/>
+   
+    <apex:pageBlock title="Account Edit">
+       
+
+           <apex:pageBlockButtons >
+                  <apex:commandButton value="save" action="{!save}"/>
+                  <apex:commandButton value="cancel" action="{!cancel}"/>
+              </apex:pageBlockButtons>
+        
+         <apex:pageBlockSection columns="2" collapsible="false">
+            <apex:outputField value="{!Account.OwnerId}"/>
+             <apex:inputField value="{!Account.Rating}" /> 
+             <apex:inputField value="{!Account.Name}" />
+             <apex:inputField value="{!Account.Phone}" />
+             <apex:inputField value="{!Account.ParentId}"/>
+             <apex:inputField value="{!Account.Fax}"/>
+             <apex:inputField value="{!Account.AccountNumber}"/>
+             <apex:inputField value="{!Account.Website}"/>
+             <apex:inputField value="{!Account.Site}"/>
+             <apex:inputField value="{!Account.TickerSymbol}"/>
+             <apex:inputField value="{!Account.Type}"/>
+             <apex:inputField value="{!Account.Ownership}"/>
+             <apex:inputField value="{!Account.Industry}"/>
+             <apex:inputField value="{!Account.Ownership}"/>
+             <apex:inputField value="{!Account.AnnualRevenue}"/>
+             <apex:inputField value="{!Account.Opportunity__c}"/>
+             <apex:inputField value="{!Account.Date__c}"/>
+             <apex:inputField value="{!Account.SSN__c}"/>
+         </apex:pageBlockSection>
+           <apex:pageBlockSection title="Address Information">
+               <apex:inputField value="{!Account.BillingStreet}"/>
+               <apex:inputField value="{!Account.ShippingStreet}"/>
+               <apex:inputField value="{!Account.BillingCity}"/>
+               <apex:inputField value="{!Account.BillingCity}"/>
+               <apex:inputField value="{!Account.ShippingCity}"/>
+               <apex:inputField value="{!Account.BillingPostalCode}"/>
+               <apex:inputField value="{!Account.ShippingPostalCode}"/>
+               <apex:inputField value="{!Account.ShippingPostalCode}"/>
+           </apex:pageBlockSection>
+           <apex:pageBlockSection title="Additional Information">
+               <apex:inputField value="{!Account.SLAExpirationDate__c}"/>
+               <apex:inputField value="{!Account.Active__c}"/>
+           </apex:pageBlockSection>
+           <apex:pageBlockSection title="Description Information">
+               <apex:inputTextarea value="{!Account.Description}" rows="5" cols="100"/>
+           </apex:pageBlockSection>
+       
+    </apex:pageBlock>
+         </apex:form>
+</apex:page>

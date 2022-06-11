@@ -1,0 +1,34 @@
+<apex:page controller="AccountRemoter" >
+    
+    <apex:includeScript value="//code.jquery.com/jquery-2.2.4.min.js"/>
+    <apex:stylesheet value="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
+    <apex:includeScript value="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"/>
+    <script type="text/javascript">
+                $(document).ready( function ()  {
+        var accountName='';
+       
+        
+        Visualforce.remoting.Manager.invokeAction(
+            '{!$RemoteAction.AccountRemoter.getAccount}',
+            accountName, 
+            function(result, event){
+                //alert(result);
+                    console.log(result);
+                var mytablestart='<table id="myId"><thead><tr><th>S/No</th><th>Name</th></tr></thead><tbody>';
+                    var mytableend='</tbody></table>';
+                    var AccountName='';
+                    for(var x=0;x<result.length;x++){
+                        AccountName+= '<tr><td>'+(x+1)+'</td><td><a href="https://ap4.salesforce.com/'+result[x].id+'">'+result[x].Name+'</a></td></tr>';
+                    }
+                    mytablestart+=AccountName;
+                    mytablestart+=mytableend;
+                    document.getElementById('{!$Component.block}').innerHTML =mytablestart;
+                    $('#myId').DataTable();
+            }, 
+            {escape: true}
+        );
+    });
+    </script>
+    <apex:pageBlock id="block">
+    </apex:pageBlock>
+</apex:page>

@@ -1,0 +1,15 @@
+<apex:page controller="Ajex_Apex_Class" docType="html-5.0" sidebar="false">
+     <apex:actionStatus id="actStatusId" >
+                <apex:facet name="start" >
+                  <img src="/img/loading.gif" />                    
+                </apex:facet>
+            </apex:actionStatus>
+  <apex:form >
+      <apex:input type="text" value="{!stringvalue}"/>
+      <apex:commandLink value="fggfg" action="{!doaction}" reRender="my" status="actStatusId"/>
+     
+    </apex:form>
+    <apex:outputPanel id="my">
+    <apex:outputText >{!stringvalue}</apex:outputText>
+        </apex:outputPanel>
+</apex:page>

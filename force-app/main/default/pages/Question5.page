@@ -1,0 +1,19 @@
+<apex:page controller="Q5Controller" docType="HTML-5.0" >
+    <apex:form >
+        <apex:pageBlock >
+        <apex:pageMessages > 
+        </apex:pageMessages>
+            <apex:pageBlockSection >
+            <apex:input type="text" value="{!values.value1}" label="Value1" />
+            <apex:input type="text" value="{!values.value2}" label="Value2" />
+             <apex:outputLabel value="Result=" >{!result}</apex:outputLabel>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                <apex:commandButton value="+" action="{!Addition}"  />
+                <apex:commandButton value="-" action="{!subtraction}"  />
+                <apex:commandButton value="/" action="{!Division}"  />
+                <apex:commandButton value="*" action="{!multiplication}"  />
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
