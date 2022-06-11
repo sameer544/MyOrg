@@ -8,7 +8,7 @@ public class Account_And_Contact_Controller {
     }
     public void addAccount(){
         i++;
-        
+        System.debug('Hello');
         List<contact_wp> ltc=new List<contact_wp>();
         Contact_Wrapper_Class ob =new Contact_Wrapper_Class(i, new Account(),ltc);
        wrapperclass.add(ob);
