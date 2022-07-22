@@ -8,5 +8,6 @@
         <input id="tags" onchange="{!c.onchangeMethod}" />
   <!--Feature added-->
    <!--Feature added-->
+   Revert this code
 </div>
 </aura:component>
