@@ -9,6 +9,7 @@ public class AutocompleteController {
             if(var.name!=null)
             returnList.add(var.Name);
         }
+        System.debug('Feature changes');
         return returnList;
     }
 }

@@ -5,7 +5,7 @@
         <lightning:inputField fieldName="Type" value="{!v.account.Type}"/>
         <lightning:inputField fieldName="Rating" value="{!v.account.Rating}"/>
         <lightning:inputField fieldName="Opportunity__c" value="{!v.account.Opportunity__c}"/>
-        <br>
+        
         <br/>
         <lightning:button label="Submit" title="Submit" onclick="{!c.InsertAccountRecord}"/>
     </lightning:recordEditForm>

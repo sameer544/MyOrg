@@ -8,7 +8,6 @@ public class Account_And_Contact_Controller {
     }
     public void addAccount(){
         i++;
-        System.debug('Hello');
         List<contact_wp> ltc=new List<contact_wp>();
         Contact_Wrapper_Class ob =new Contact_Wrapper_Class(i, new Account(),ltc);
        wrapperclass.add(ob);
@@ -26,6 +25,7 @@ public class Account_And_Contact_Controller {
               data.conList.add(ob);
             }
       }
+      System.debug('Add debug point');
     }
     public void removeContact(){
          double i=double.valueof(ApexPages.currentPage().getParameters().get('Indexof'));
@@ -48,7 +48,6 @@ public class Account_And_Contact_Controller {
                  data.conList.addAll(copycontactList);
              }
         }
-        
     }
     public void saveAll(){
        /* List<Account> ListAccount=new  List<Account>();
