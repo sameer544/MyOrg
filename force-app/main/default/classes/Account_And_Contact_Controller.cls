@@ -15,8 +15,6 @@ public class Account_And_Contact_Controller {
     public void addContact(){
         string s=ApexPages.currentPage().getParameters().get('Indexof');
         Integer i=Integer.valueof(s);
-        System.debug(s);
-        System.debug(ApexPages.currentPage().getParameters().get('Indexof'));
         for(Contact_Wrapper_Class data:wrapperclass){
             if(data.indexaccount==i){
                 contact_wp ob=new contact_wp();
@@ -25,7 +23,7 @@ public class Account_And_Contact_Controller {
               data.conList.add(ob);
             }
       }
-      System.debug('Add debug point');
+      // Test103229
     }
     public void removeContact(){
          double i=double.valueof(ApexPages.currentPage().getParameters().get('Indexof'));
@@ -49,8 +47,9 @@ public class Account_And_Contact_Controller {
              }
         }
     }
+    //Changes
     public void saveAll(){
-       /* List<Account> ListAccount=new  List<Account>();
+        List<Account> ListAccount=new  List<Account>();
         for(Contact_Wrapper_Class data:wrapperclass){
              ListAccount.add(data.acc);
         }
@@ -70,7 +69,7 @@ public class Account_And_Contact_Controller {
                     }
                 }
             }
-        }*/
+        }
 		wrapperclass.clear();        
     }
  }

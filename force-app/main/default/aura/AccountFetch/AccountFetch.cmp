@@ -12,4 +12,5 @@
     <lightning:recordEditForm objectApiName="Contact" >
         <lightning:inputField fieldName="LastName" value="{!v.account.LastName}"/>
     </lightning:recordEditForm>
+    <!--Change103-->
 </aura:component>

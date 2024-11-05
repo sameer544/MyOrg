@@ -6,8 +6,6 @@
     <div class="ui-widget">
   <label for="tags">Tags: </label>
         <input id="tags" onchange="{!c.onchangeMethod}" />
-  <!--Feature added-->
-   <!--Feature added-->
-   Revert this code
+  <!--Changes-->
 </div>
 </aura:component>
