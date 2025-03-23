@@ -27,13 +27,13 @@
 /**
  * Base class aiding in the implementation of a Domain Model around SObject collections
  * 
- * Domain (software engineering). “a set of common requirements, terminology, and functionality 
- * for any software program constructed to solve a problem in that field”,
+ * Domain (software engineering). "a set of common requirements, terminology, and functionality 
+ * for any software program constructed to solve a problem in that field",
  * http://en.wikipedia.org/wiki/Domain_(software_engineering)
  *
- * Domain Model, “An object model of the domain that incorporates both behavior and data.”, 
- * “At its worst business logic can be very complex. Rules and logic describe many different "
- * "cases and slants of behavior, and it's this complexity that objects were designed to work with...” 
+ * Domain Model, "An object model of the domain that incorporates both behavior and data.", 
+ * "At its worst business logic can be very complex. Rules and logic describe many different "
+ * "cases and slants of behavior, and it's this complexity that objects were designed to work with..." 
  * Martin Fowler, EAA Patterns
  * http://martinfowler.com/eaaCatalog/domainModel.html
  *

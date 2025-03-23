@@ -54,27 +54,29 @@
 public virtual class fflib_SObjectUnitOfWork
     implements fflib_ISObjectUnitOfWork
 {
-    protected List<Schema.SObjectType> m_sObjectTypes = new List<Schema.SObjectType>();
+    private List<Schema.SObjectType> m_sObjectTypes = new List<Schema.SObjectType>();
 
-    protected Map<String, List<SObject>> m_newListByType = new Map<String, List<SObject>>();
+    private Map<String, List<SObject>> m_newListByType = new Map<String, List<SObject>>();
+    private Map<String, List<SObject>> m_dirtyListByType = new Map<String, List<SObject>>();
+    private Map<String, List<SObject>> m_deletedListByType = new Map<String, List<SObject>>();
+    private Map<String, Map<Id, SObject>> m_newListByTypeAndId = new Map<String, Map<Id, SObject>>();
 
-    protected Map<String, Map<Id, SObject>> m_dirtyMapByType = new Map<String, Map<Id, SObject>>();
+    private Map<String, Map<Id, SObject>> m_dirtyMapByType = new Map<String, Map<Id, SObject>>();
+    private Map<String, Map<Id, SObject>> m_deletedMapByType = new Map<String, Map<Id, SObject>>();
+    private Map<String, Map<Id, SObject>> m_emptyRecycleBinMapByType = new Map<String, Map<Id, SObject>>();
 
-    protected Map<String, Map<Id, SObject>> m_deletedMapByType = new Map<String, Map<Id, SObject>>();
-    protected Map<String, Map<Id, SObject>> m_emptyRecycleBinMapByType = new Map<String, Map<Id, SObject>>();
+    private Map<String, Relationships> m_relationships = new Map<String, Relationships>();
 
-    protected Map<String, Relationships> m_relationships = new Map<String, Relationships>();
+    private Map<String, List<SObject>> m_publishBeforeListByType = new Map<String, List<SObject>>();
+    private Map<String, List<SObject>> m_publishAfterSuccessListByType = new Map<String, List<SObject>>();
+    private Map<String, List<SObject>> m_publishAfterFailureListByType = new Map<String, List<SObject>>();
 
-    protected Map<String, List<SObject>> m_publishBeforeListByType = new Map<String, List<SObject>>();
-    protected Map<String, List<SObject>> m_publishAfterSuccessListByType = new Map<String, List<SObject>>();
-    protected Map<String, List<SObject>> m_publishAfterFailureListByType = new Map<String, List<SObject>>();
-
-    protected List<IDoWork> m_workList = new List<IDoWork>();
+    private List<IDoWork> m_workList = new List<IDoWork>();
 
     @TestVisible
-    protected IEmailWork m_emailWork = new SendEmailWork();
+    private IEmailWork m_emailWork = new SendEmailWork();
 
-    protected IDML m_dml;
+    private IDML m_dml;
 
     /**
      * Interface describes work to be performed during the commitWork method
@@ -163,8 +165,19 @@ public virtual class fflib_SObjectUnitOfWork
 
         for (Schema.SObjectType sObjectType : m_sObjectTypes)
         {
-            // register the type
-            handleRegisterType(sObjectType);
+            String typeName = sObjectType.getDescribe().getName();
+            m_newListByType.put(typeName, new List<SObject>());
+            m_dirtyListByType.put(typeName, new List<SObject>());
+            m_deletedListByType.put(typeName, new List<SObject>());
+            m_newListByTypeAndId.put(typeName, new Map<Id, SObject>());
+            m_dirtyMapByType.put(typeName, new Map<Id, SObject>());
+            m_deletedMapByType.put(typeName, new Map<Id, SObject>());
+            m_emptyRecycleBinMapByType.put(typeName, new Map<Id, SObject>());
+            m_relationships.put(typeName, new Relationships());
+
+            m_publishBeforeListByType.put(typeName, new List<SObject>());
+            m_publishAfterSuccessListByType.put(typeName, new List<SObject>());
+            m_publishAfterFailureListByType.put(typeName, new List<SObject>());
         }
 
 		m_relationships.put(Messaging.SingleEmailMessage.class.getName(), new Relationships());
