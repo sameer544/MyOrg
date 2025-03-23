@@ -1,4 +1,0 @@
-<aura:component>
-    <c:DComponent />
-    <c:EComponent />
-</aura:component>

@@ -1,8 +1,0 @@
-<apex:page controller="Q3Controller" >
-    <apex:form id="From" >
-    <apex:pageBlock rendered="{!hidblock}">
-       <apex:outputLabel value="Accounts={!countAccount},Rating Is Hot" ></apex:outputLabel>
-    </apex:pageBlock>
-        <apex:actionPoller interval="5" action="{!countaccount}" reRender="From"  />
-    </apex:form>
-</apex:page>

@@ -1,5 +1,0 @@
-<apex:page tabStyle="Account" docType="html-5.0">
-    <apex:form >
-        <apex:sectionHeader title="Account"/>
-    </apex:form>
-</apex:page>

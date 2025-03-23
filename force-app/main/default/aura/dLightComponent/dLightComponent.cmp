@@ -1,6 +1,0 @@
-<aura:component >
-	<aura:registerEvent name="sampleComponentEvent" type="c:exampleComponentEvent"/>
-    <aura:handler name="sampleComponentEvent" event="c:exampleComponentEvent"
-    action="{!c.handler}" />
-    <lightning:button variant="base" label="Base" title="Base action" onclick="{!c.handleClick}"/>
-</aura:component>

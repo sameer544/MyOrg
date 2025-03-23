@@ -1,5 +1,0 @@
-<apex:page controller="Repeater_Controller" >
-    <apex:repeat value="{!stringList}" var="st" >
-        <apex:outputLabel >{!st}</apex:outputLabel>
-    </apex:repeat>
-</apex:page>

@@ -1,5 +1,0 @@
-<aura:component >
-    <aura:handler name="sampleComponentEvent" event="c:exampleComponentEvent"
-    action="{!c.handler}" phase="capture" />
-    <c:bLightComponent />
-</aura:component>
