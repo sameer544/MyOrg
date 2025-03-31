@@ -1,0 +1,53 @@
+<template>
+    <div class="slds-form-element">
+        <!-- Date Selection Section -->
+        <div class="slds-grid slds-gutters slds-m-bottom_medium">
+            <!-- Reported Date -->
+            <div class="slds-col slds-size_1-of-2">
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="reported-date">Reported Date</label>
+                    <div class="slds-form-element__control">
+                        <div class="slds-input slds-input_readonly">
+                            May 15, 2021
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Proposed Date -->
+            <div class="slds-col slds-size_1-of-2">
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="proposed-date">Proposed Date</label>
+                    <div class="slds-form-element__control">
+                        <lightning-input 
+                            type="date"
+                            id="proposed-date"
+                            value={proposedDate}
+                            onchange={handleProposedDateChange}
+                            variant="label-hidden"
+                            class="slds-input">
+                        </lightning-input>
+                    </div>
+                    <div class="slds-form-element__help slds-text-color_error" if:true={dateValidationMessage}>
+                        {dateValidationMessage}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Payment Table Section -->
+        <div class="slds-box slds-theme_default">
+            <h3 class="slds-text-heading_medium slds-m-bottom_small">Monthly Payment Details</h3>
+            <div class="slds-scrollable">
+                <lightning-datatable
+                    key-field="id"
+                    data={paymentData}
+                    columns={columns}
+                    hide-checkbox-column
+                    oncellchange={handleAmountChange}
+                    resize-column-disabled>
+                </lightning-datatable>
+            </div>
+        </div>
+    </div>
+</template> 

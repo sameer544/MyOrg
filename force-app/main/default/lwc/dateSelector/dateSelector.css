@@ -1,0 +1,71 @@
+.slds-form-element {
+    padding: 0.5rem;
+}
+
+.slds-grid {
+    margin: 0;
+}
+
+.slds-form-element__label {
+    font-weight: 500;
+    color: #54698d;
+}
+
+.slds-input {
+    width: 100%;
+}
+
+.slds-input_readonly {
+    background-color: #f3f2f2;
+    border-color: #dddbda;
+    color: #16325c;
+    font-weight: 500;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.slds-form-element__help {
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+.slds-box {
+    padding: 1rem;
+    border-radius: 0.25rem;
+    background-color: white;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+}
+
+.slds-text-heading_medium {
+    color: #16325c;
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+.slds-m-bottom_medium {
+    margin-bottom: 1rem;
+}
+
+.slds-m-bottom_small {
+    margin-bottom: 0.5rem;
+}
+
+.slds-scrollable {
+    overflow-x: auto;
+    max-width: 100%;
+}
+
+/* Style for the year column */
+.slds-table th:first-child,
+.slds-table td:first-child {
+    position: sticky;
+    left: 0;
+    background-color: white;
+    z-index: 1;
+}
+
+/* Style for currency cells */
+.slds-table td[data-label="Year"] {
+    font-weight: bold;
+    background-color: #f3f2f2;
+} 
