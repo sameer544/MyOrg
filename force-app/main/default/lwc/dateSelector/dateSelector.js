@@ -99,163 +99,127 @@ export default class DateSelector extends LightningElement {
     updatePaymentTable() {
         const reportedDate = new Date(this.reportedDate);
         const reportedYear = reportedDate.getFullYear();
-        const reportedMonth = reportedDate.getMonth();
         this.paymentData = [];
         
-        // If no proposed date is selected, only show 2021 rows
         if (!this.proposedDate) {
-            // Create reported row for 2021
-            const reportedRow2021 = {
-                id: `reported_${reportedYear}`,
-                type: 'Reported',
-                year: reportedYear,
-                january: '',
-                february: '',
-                march: '',
-                april: '',
-                may: '1000',
-                june: '',
-                july: '',
-                august: '',
-                september: '',
-                october: '',
-                november: '',
-                december: ''
-            };
-            
-            // Create proposed row for 2021
-            const proposedRow2021 = {
-                id: `proposed_${reportedYear}`,
-                type: 'Proposed',
-                year: reportedYear,
-                january: '',
-                february: '',
-                march: '',
-                april: '',
-                may: '',
-                june: '',
-                july: '',
-                august: '',
-                september: '',
-                october: '',
-                november: '',
-                december: ''
-            };
-            
-            this.paymentData.push(reportedRow2021, proposedRow2021);
+            this.createInitialRows(reportedYear);
             return;
         }
         
-        // If proposed date is selected and valid
         if (this.isDateValid) {
             const proposedDate = new Date(this.proposedDate);
             const proposedYear = proposedDate.getFullYear();
-            const proposedMonth = proposedDate.getMonth();
+            this.createRowsForDateRange(reportedYear, proposedYear, proposedDate);
+        }
+    }
+
+    createInitialRows(reportedYear) {
+        const reportedRow = this.createRow(reportedYear, 'Reported');
+        reportedRow.may = '1000';
+        
+        const proposedRow = this.createRow(reportedYear, 'Proposed');
+        
+        this.paymentData.push(reportedRow, proposedRow);
+    }
+
+    createRowsForDateRange(reportedYear, proposedYear, proposedDate) {
+        for (let year = proposedYear; year >= reportedYear; year--) {
+            const reportedRow = this.createRow(year, 'Reported');
+            const proposedRow = this.createRow(year, 'Proposed');
             
-            // Create rows for each year from proposed year to reported year (descending order)
-            for (let year = proposedYear; year >= reportedYear; year--) {
-                // Create reported row
-                const reportedRow = {
-                    id: `reported_${year}`,
-                    type: 'Reported',
-                    year: year,
-                    january: '',
-                    february: '',
-                    march: '',
-                    april: '',
-                    may: '',
-                    june: '',
-                    july: '',
-                    august: '',
-                    september: '',
-                    october: '',
-                    november: '',
-                    december: ''
-                };
-                
-                // Create proposed row
-                const proposedRow = {
-                    id: `proposed_${year}`,
-                    type: 'Proposed',
-                    year: year,
-                    january: '',
-                    february: '',
-                    march: '',
-                    april: '',
-                    may: '',
-                    june: '',
-                    july: '',
-                    august: '',
-                    september: '',
-                    october: '',
-                    november: '',
-                    december: ''
-                };
-                
-                // Set reported amount for 2021 May
-                if (year === 2021) {
-                    reportedRow.may = '1000';
-                }
-                
-                // Set proposed amount if this is the selected year
-                if (year === proposedYear) {
-                    proposedRow[this.getMonthFieldName(proposedMonth)] = '1200';
-                }
-                
-                // Fill months between reported and proposed dates with "YYY"
-                const months = ['january', 'february', 'march', 'april', 'may', 'june', 
-                              'july', 'august', 'september', 'october', 'november', 'december'];
-                
-                for (let month of months) {
-                    const monthIndex = months.indexOf(month);
-                    
-                    // For reported row
-                    if (year === reportedYear) {
-                        if (monthIndex > months.indexOf('may')) {
-                            reportedRow[month] = '';
-                        }
-                        else if (month === 'may') {
-                            reportedRow[month] = '1000';
-                        }
-                        else {
-                            reportedRow[month] = 'YYY';
-                        }
-                    } else if (year > reportedYear && year < proposedYear) {
-                        reportedRow[month] = 'YYY';
-                    } else if (year === proposedYear) {
-                        if (monthIndex > months.indexOf(this.getMonthFieldName(proposedMonth))) {
-                            reportedRow[month] = '';
-                        }
-                        else {
-                            reportedRow[month] = 'YYY';
-                        }
-                    }
-                    
-                    // For proposed row
-                    if (year === proposedYear) {
-                        if (monthIndex > months.indexOf(this.getMonthFieldName(proposedMonth))) {
-                            proposedRow[month] = '';
-                        }
-                        else if (month === this.getMonthFieldName(proposedMonth)) {
-                            proposedRow[month] = '1200';
-                        }
-                        else {
-                            proposedRow[month] = 'YYY';
-                        }
-                    } else if (year < proposedYear && year > reportedYear) {
-                        proposedRow[month] = 'YYY';
-                    } else if (year === reportedYear) {
-                        if (monthIndex > months.indexOf('may')) {
-                            proposedRow[month] = '';
-                        }
-                        else {
-                            proposedRow[month] = 'YYY';
-                        }
-                    }
-                }
-                
-                // Add both rows to the payment data
-                this.paymentData.push(reportedRow, proposedRow);
+            this.setSpecialValues(reportedRow, proposedRow, year, proposedYear, proposedDate);
+            this.fillMonthValues(reportedRow, proposedRow, year, reportedYear, proposedYear, proposedDate);
+            
+            this.paymentData.push(reportedRow, proposedRow);
+        }
+    }
+
+    createRow(year, type) {
+        return {
+            id: `${type.toLowerCase()}_${year}`,
+            type: type,
+            year: year,
+            january: '',
+            february: '',
+            march: '',
+            april: '',
+            may: '',
+            june: '',
+            july: '',
+            august: '',
+            september: '',
+            october: '',
+            november: '',
+            december: ''
+        };
+    }
+
+    setSpecialValues(reportedRow, proposedRow, year, proposedYear, proposedDate) {
+        // Set reported amount for 2021 May
+        if (year === 2021) {
+            reportedRow.may = '1000';
+        }
+        
+        // Set proposed amount if this is the selected year
+        if (year === proposedYear) {
+            proposedRow[this.getMonthFieldName(proposedDate.getMonth())] = '1200';
+        }
+    }
+
+    fillMonthValues(reportedRow, proposedRow, year, reportedYear, proposedYear, proposedDate) {
+        const months = ['january', 'february', 'march', 'april', 'may', 'june', 
+                       'july', 'august', 'september', 'october', 'november', 'december'];
+        
+        for (let month of months) {
+            this.fillReportedRowMonth(reportedRow, month, year, reportedYear, proposedYear, proposedDate);
+            this.fillProposedRowMonth(proposedRow, month, year, reportedYear, proposedYear, proposedDate);
+        }
+    }
+
+    fillReportedRowMonth(reportedRow, month, year, reportedYear, proposedYear, proposedDate) {
+        const months = ['january', 'february', 'march', 'april', 'may', 'june', 
+                       'july', 'august', 'september', 'october', 'november', 'december'];
+        const monthIndex = months.indexOf(month);
+        
+        if (year === reportedYear) {
+            if (monthIndex > months.indexOf('may')) {
+                reportedRow[month] = '';
+            } else if (month === 'may') {
+                reportedRow[month] = '1000';
+            } else {
+                reportedRow[month] = 'YYY';
+            }
+        } else if (year > reportedYear && year < proposedYear) {
+            reportedRow[month] = 'YYY';
+        } else if (year === proposedYear) {
+            if (monthIndex > months.indexOf(this.getMonthFieldName(proposedDate.getMonth()))) {
+                reportedRow[month] = '';
+            } else {
+                reportedRow[month] = 'YYY';
+            }
+        }
+    }
+
+    fillProposedRowMonth(proposedRow, month, year, reportedYear, proposedYear, proposedDate) {
+        const months = ['january', 'february', 'march', 'april', 'may', 'june', 
+                       'july', 'august', 'september', 'october', 'november', 'december'];
+        const monthIndex = months.indexOf(month);
+        
+        if (year === proposedYear) {
+            if (monthIndex > months.indexOf(this.getMonthFieldName(proposedDate.getMonth()))) {
+                proposedRow[month] = '';
+            } else if (month === this.getMonthFieldName(proposedDate.getMonth())) {
+                proposedRow[month] = '1200';
+            } else {
+                proposedRow[month] = 'YYY';
+            }
+        } else if (year < proposedYear && year > reportedYear) {
+            proposedRow[month] = 'YYY';
+        } else if (year === reportedYear) {
+            if (monthIndex > months.indexOf('may')) {
+                proposedRow[month] = '';
+            } else {
+                proposedRow[month] = 'YYY';
             }
         }
     }
