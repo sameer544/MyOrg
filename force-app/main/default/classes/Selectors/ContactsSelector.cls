@@ -34,4 +34,4 @@ public class ContactsSelector extends fflib_SObjectSelector {
         
         return results;
     }
-} 
+}

@@ -73,5 +73,5 @@ public abstract class fflib_SObjectSelector {
     
     public Boolean isEnforcingObjectSecurity() {
         return enforceObjectSecurity;
-    }    
+    }
 }

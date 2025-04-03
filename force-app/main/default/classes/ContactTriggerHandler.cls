@@ -55,4 +55,4 @@ public class ContactTriggerHandler {
             update accountsToUpdate.values();
         }
     }
-} 
+}

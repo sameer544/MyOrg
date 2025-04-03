@@ -8,7 +8,7 @@
     <applicationVisibilities>
         <application>standard__AllTabSet</application>
         <default>true</default>
-        <visible>false</visible>
+        <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>standard__AppLauncher</application>
@@ -151,6 +151,18 @@
     </classAccesses>
     <classAccesses>
         <apexClass>CaseService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ContactTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ContactsDomain</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ContactsSelector</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -410,6 +422,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>fflib_SObjectService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>fflib_SObjectUnitOfWork</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -457,6 +473,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Active__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Contact_Count__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

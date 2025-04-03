@@ -22,4 +22,4 @@ public virtual class fflib_SObjectService {
             unitOfWork.commitWork();
         }
     }
-} 
+}

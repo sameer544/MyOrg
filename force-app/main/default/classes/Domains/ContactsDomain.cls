@@ -78,4 +78,4 @@ public class ContactsDomain extends fflib_SObjectDomain {
             return new ContactsDomain(records);
         }
     }
-} 
+}
