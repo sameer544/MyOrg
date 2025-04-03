@@ -1,0 +1,57 @@
+<apex:page tabStyle="Account" controller="RecordManagementSystem_Controller" >
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageBlockSection title="Select Name">
+                <apex:selectList size="1" value="{!Property.selectedObjectName}"  >
+                    <apex:selectOptions value="{!Property.AllObjectNamePickList}"></apex:selectOptions>
+                    <apex:actionSupport event="onchange" action="{!FieldNameRelatedToObject}" reRender="FieldPageBlock" />
+                </apex:selectList>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Select Field Name" >
+                <apex:selectList size="10" value="{!Property.SelectObjectFieldName}" multiselect="true" style="width:20em" id="FieldPageBlock" >
+                    <apex:selectOptions value="{!Property.FieldNameRelatedToObject}"></apex:selectOptions>
+                    <apex:actionSupport event="onkeypress" action="{!QueryBuilderData}" />
+                </apex:selectList>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+    <apex:form >
+    <apex:pageBlock >
+        		<apex:variable value="{!0}" var="SN" />
+               <apex:pageBlockSection columns="1" id="tableshow">
+                   <apex:pageBlock >
+                <table>
+                    <tr>
+                        <th>S/No</th>
+                        <apex:repeat value="{!Property.SelectObjectFieldName}" var="fldName">
+                            <th>{!fldName}</th>
+                        </apex:repeat>
+                    </tr>  
+                <apex:repeat value="{!Property.ListOfRecords}" var="objectname">
+                    <apex:variable value="{!SN+1}" var="SN" />
+                	<tr>
+                        <td>{!SN}</td>
+                        <apex:repeat value="{!Property.SelectObjectFieldName}" var="fldName">
+                            <td>{!objectname[fldName]}</td>
+                        </apex:repeat>
+                    </tr>
+                    
+                </apex:repeat>
+                </table>
+              </apex:pageBlock>
+                <apex:pageBlock rendered="{!navdisable}">
+               
+               <table>
+                    <tr>
+						<td><apex:commandButton value="Next" action="{!NextButton}" disabled="{!nextbuttonenable}" reRender="tableshow" /></td>
+                        <td><apex:commandButton value="Previous" action="{!prebutton}" reRender="tableshow" /></td>
+                        <td><apex:commandButton value="First"  /></td>
+                        <td><apex:commandButton value="Last" /></td>
+                    </tr>
+                    
+                </table>
+               </apex:pageBlock>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+        </apex:form>
+</apex:page>

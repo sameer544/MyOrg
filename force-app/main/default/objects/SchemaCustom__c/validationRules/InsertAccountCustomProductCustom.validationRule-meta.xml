@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>InsertAccountCustomProductCustom</fullName>
+    <active>true</active>
+    <errorConditionFormula>or(IsBlank( AccountCustom__c ),And(Isblank(  ProductCategory__c ),IsBlank( ProductCustom__c )),
+And(not(Isblank(  ProductCategory__c )),Not(IsBlank( ProductCustom__c ))))</errorConditionFormula>
+    <errorMessage>Select One of them (ProductCustom or ProductCategory )</errorMessage>
+</ValidationRule>

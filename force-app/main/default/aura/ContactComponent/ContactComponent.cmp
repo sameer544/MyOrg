@@ -1,0 +1,5 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute type="String" name="NewId" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    Contact Id <lightning:input type="Text" value="{!v.NewId}"/>
+</aura:component>

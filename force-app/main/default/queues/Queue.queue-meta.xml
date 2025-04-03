@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Queue xmlns="http://soap.sforce.com/2006/04/metadata">
+    <doesSendEmailToMembers>false</doesSendEmailToMembers>
+    <name>Queue</name>
+    <queueMembers>
+        <users>
+            <user>sameerranjan544@developer.com</user>
+            <user>sameerranjan@developer.com</user>
+            <user>ranjansameer@kvpcorp.com</user>
+            <user>insightssecurity@00d6f000002twdjuas.com</user>
+        </users>
+    </queueMembers>
+    <queueSobject>
+        <sobjectType>Bank__c</sobjectType>
+    </queueSobject>
+    <queueSobject>
+        <sobjectType>Favorite__c</sobjectType>
+    </queueSobject>
+    <queueSobject>
+        <sobjectType>Lead</sobjectType>
+    </queueSobject>
+    <queueSobject>
+        <sobjectType>Macro</sobjectType>
+    </queueSobject>
+</Queue>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Courses__c</fullName>
+    <externalId>false</externalId>
+    <label>Courses</label>
+    <required>true</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>M.tech</fullName>
+                <default>false</default>
+                <label>M.tech</label>
+            </value>
+            <value>
+                <fullName>B.tech</fullName>
+                <default>false</default>
+                <label>B.tech</label>
+            </value>
+            <value>
+                <fullName>MCA</fullName>
+                <default>false</default>
+                <label>MCA</label>
+            </value>
+            <value>
+                <fullName>BCA</fullName>
+                <default>false</default>
+                <label>BCA</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

@@ -1,0 +1,17 @@
+<apex:page controller="WarningController" >
+    <apex:form >
+    <apex:pageBlock >
+        <apex:commandButton value="Error" action="{!getError}" />
+       
+    </apex:pageBlock>
+        
+    <apex:pageBlock rendered="{!HidepageBlock}">
+        <table>
+           <tr>
+               <th>{!WarningMessage}</th>
+               <th><apex:commandButton value="Submit Report" action="{!SendReport}" /><apex:commandButton value="Cancel" action="{!Cancel}" /> </th>
+           </tr>
+        </table>
+    </apex:pageBlock>
+        </apex:form>
+</apex:page>

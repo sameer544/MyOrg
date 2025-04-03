@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>automatch_c__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>automatch__c</description>
+    <externalDeveloperName>automatch__c</externalDeveloperName>
+    <externalId>false</externalId>
+    <isFilteringDisabled>false</isFilteringDisabled>
+    <isNameField>false</isNameField>
+    <isSortingDisabled>false</isSortingDisabled>
+    <label>automatch__c</label>
+    <type>Checkbox</type>
+</CustomField>

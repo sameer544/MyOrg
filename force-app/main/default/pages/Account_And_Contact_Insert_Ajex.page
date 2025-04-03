@@ -1,0 +1,52 @@
+<apex:page sidebar="false" controller="Account_And_Contact_Controller" >
+    <apex:form id="Myfrom" >
+    <apex:pageBlock >
+          <apex:pageBlockButtons >
+                <apex:commandButton value="New Account" action="{!addAccount}" reRender="Myfrom" />
+              	<apex:commandButton value="Save" action="{!saveAll}" />
+            </apex:pageBlockButtons>
+            <table>
+               <tr>
+                   <th>S/No</th>
+                   <th>Account Name</th>
+                   <th>Industry</th>
+                   <th>Rating</th>
+                   <th></th>
+                   <th></th>
+                </tr>
+                <apex:variable value="{!1}" var="SN" />
+                <apex:repeat value="{!wrapperclass}" var="acct" >
+                <tr>
+                    <td>{!SN}</td>
+                    <td><apex:inputField value="{!acct.acc.name}" /> </td>
+                    <td><apex:inputField value="{!acct.acc.industry}" />  </td>
+                    <td><apex:inputField value="{!acct.acc.Rating}" /> </td>
+                    <td><apex:commandButton value="Add Contact" image="{!urlfor($Resource.Sign_Logo,'sign/addition_sign.png')}" style="width:20px" action="{!addContact}" reRender="Myfrom" >
+                        <apex:param name="Indexof" value="{!SN}" />
+                </apex:commandButton>  </td>
+                    <td><apex:commandButton value="Remove Contact" image="{!urlfor($Resource.Sign_Logo,'sign/subtraction_sign.png')}" style="width:20px" action="{!removeContact}"  reRender="Myfrom" >
+                <apex:param name="Indexof" value="{!SN}" />
+                </apex:commandButton> </td>
+                </tr>
+                    <apex:variable value="{!0.1}" var="conSN" />
+                    <apex:repeat value="{!acct.conList}" var="coninfo" >
+                    <tr>
+                        <td>{!SN+conSN}</td>
+                        <td><apex:inputField value="{!coninfo.con.FirstName}" /> </td>
+                    <td><apex:inputField value="{!coninfo.con.LastName}" />  </td>
+                    <td><apex:inputField value="{!coninfo.con.Phone}" /> </td>
+                    <td><apex:commandButton value="Add Contact" image="{!urlfor($Resource.Sign_Logo,'sign/addition_sign.png')}" style="width:20px" action="{!addContact}" reRender="Myfrom" >
+                        <apex:param name="Indexof" value="{!SN}" />
+                </apex:commandButton>  </td>
+                    <td><apex:commandButton value="Remove Contact" image="{!urlfor($Resource.Sign_Logo,'sign/subtraction_sign.png')}" style="width:20px" action="{!removeContact}"  reRender="Myfrom" >
+                <apex:param name="Indexof" value="{!SN+conSN}" />
+                </apex:commandButton> </td>
+                    </tr>
+                        <apex:variable value="{!conSN+0.1}" var="conSN" />
+                        </apex:repeat>
+                    <tr> <apex:variable value="{!SN+1}" var="SN" /></tr>
+                </apex:repeat>
+            </table>
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,11 @@
+<apex:page standardController="Contact" extensions="Query_Controller" docType="HTML-5.0">
+    <apex:form >
+        <apex:pageBlock >
+         	<apex:pageBlockSection columns="2">
+              <apex:inputField value="{!Contact.Name}"/>
+              <apex:inputField value="{!Contact.AccountId}"/>  
+              <apex:inputField value="{!Contact.Account.Name}"/>
+            </apex:pageBlockSection>   
+        </apex:pageBlock>
+        </apex:form>
+</apex:page>

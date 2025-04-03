@@ -86,14 +86,6 @@
     </types>
     <types>
         <members>*</members>
-        <name>Report</name>
-    </types>
-    <types>
-        <members>*</members>
-        <name>Dashboard</name>
-    </types>
-    <types>
-        <members>*</members>
         <name>Queue</name>
     </types>
     <types>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Validate_Bank_Object</fullName>
+    <active>true</active>
+    <errorConditionFormula>if(RecordType.Name ==&apos;Clerk&apos;,IsBlank( Last_Name__c ),false)</errorConditionFormula>
+    <errorDisplayField>Last_Name__c</errorDisplayField>
+    <errorMessage>Required</errorMessage>
+</ValidationRule>

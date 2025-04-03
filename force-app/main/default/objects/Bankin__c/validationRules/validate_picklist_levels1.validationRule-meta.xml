@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>validate_picklist_levels1</fullName>
+    <active>false</active>
+    <errorConditionFormula>if(text( PickList__c )!=&quot;A&quot;,true,false)</errorConditionFormula>
+    <errorMessage>errer</errorMessage>
+</ValidationRule>

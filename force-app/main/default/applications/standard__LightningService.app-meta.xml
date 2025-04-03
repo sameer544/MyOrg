@@ -1,23 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
-    <actionOverrides>
-        <actionName>View</actionName>
-        <comment>Action override created by Lightning App Builder during activation.</comment>
-        <content>Case_Record_Page</content>
-        <formFactor>Small</formFactor>
-        <skipRecordTypeSelect>false</skipRecordTypeSelect>
-        <type>Flexipage</type>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>View</actionName>
-        <comment>Action override created by Lightning App Builder during activation.</comment>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <skipRecordTypeSelect>false</skipRecordTypeSelect>
-        <type>Flexipage</type>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-    </actionOverrides>
     <formFactors>Small</formFactors>
     <formFactors>Large</formFactors>
     <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
@@ -25,38 +7,6 @@
     <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
     <label>Service Console</label>
     <navType>Console</navType>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Case_Record_Page</content>
-        <formFactor>Small</formFactor>
-        <pageOrSobjectType>Case</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Account_Record_Page</content>
-        <formFactor>Large</formFactor>
-        <pageOrSobjectType>Account</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>Admin</profile>
-    </profileActionOverrides>
-    <profileActionOverrides>
-        <actionName>View</actionName>
-        <content>Account_Record_Page</content>
-        <formFactor>Small</formFactor>
-        <pageOrSobjectType>Account</pageOrSobjectType>
-        <type>Flexipage</type>
-        <profile>Admin</profile>
-    </profileActionOverrides>
     <setupExperience>service</setupExperience>
     <tabs>standard-Case</tabs>
     <tabs>standard-Contact</tabs>
@@ -64,15 +14,164 @@
     <tabs>standard-report</tabs>
     <tabs>standard-Dashboard</tabs>
     <tabs>standard-home</tabs>
-    <tabs>standard-Incident</tabs>
-    <tabs>standard-Problem</tabs>
-    <tabs>standard-ChangeRequest</tabs>
-    <tabs>BackUpAccountVersion__c</tabs>
+    <tabs>Student__c</tabs>
+    <tabs>Hospital__c</tabs>
+    <tabs>Personal_Infomation__c</tabs>
+    <tabs>College__c</tabs>
+    <tabs>University__c</tabs>
+    <tabs>Project__c</tabs>
+    <tabs>Consultants__c</tabs>
+    <tabs>Dummy__c</tabs>
+    <tabs>State__c</tabs>
+    <tabs>City__c</tabs>
+    <tabs>Demo1__c</tabs>
+    <tabs>demo2__c</tabs>
+    <tabs>demo3__c</tabs>
+    <tabs>demo4__c</tabs>
+    <tabs>demo5__c</tabs>
+    <tabs>Assignement__c</tabs>
+    <tabs>Indurty__c</tabs>
+    <tabs>level7__c</tabs>
+    <tabs>level1__c</tabs>
+    <tabs>sam11__c</tabs>
+    <tabs>Bankin__c</tabs>
+    <tabs>Bank__c</tabs>
+    <tabs>Example__c</tabs>
+    <tabs>Status_Object__c</tabs>
+    <tabs>New_Object_Record__c</tabs>
+    <tabs>Expense__c</tabs>
+    <tabs>Other_Info__c</tabs>
+    <tabs>Duplicate_Account_Contact__c</tabs>
+    <tabs>Opp_Duplicator__c</tabs>
+    <tabs>List_Of_Approval_Process</tabs>
+    <tabs>Invoice__c</tabs>
+    <tabs>SchemaCustom__c</tabs>
+    <tabs>ProductCategory__c</tabs>
+    <tabs>AccountCustom__c</tabs>
+    <tabs>ProductCustom__c</tabs>
+    <tabs>Marchandise__c</tabs>
+    <tabs>Line_Item__c</tabs>
+    <tabs>Case__c</tabs>
+    <tabs>User_Information__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>LightningService_UtilityBar</utilityBar>
     <workspaceConfig>
         <mappings>
-            <tab>BackUpAccountVersion__c</tab>
+            <tab>AccountCustom__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Assignement__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Bank__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Bankin__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Case__c</tab>
+        </mappings>
+        <mappings>
+            <tab>City__c</tab>
+        </mappings>
+        <mappings>
+            <tab>College__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Consultants__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Demo1__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Dummy__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Duplicate_Account_Contact__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Example__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Expense__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Hospital__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Indurty__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Invoice__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Line_Item__c</tab>
+        </mappings>
+        <mappings>
+            <tab>List_Of_Approval_Process</tab>
+        </mappings>
+        <mappings>
+            <tab>Marchandise__c</tab>
+        </mappings>
+        <mappings>
+            <tab>New_Object_Record__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Opp_Duplicator__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Other_Info__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Personal_Infomation__c</tab>
+        </mappings>
+        <mappings>
+            <tab>ProductCategory__c</tab>
+        </mappings>
+        <mappings>
+            <tab>ProductCustom__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Project__c</tab>
+        </mappings>
+        <mappings>
+            <tab>SchemaCustom__c</tab>
+        </mappings>
+        <mappings>
+            <tab>State__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Status_Object__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Student__c</tab>
+        </mappings>
+        <mappings>
+            <tab>University__c</tab>
+        </mappings>
+        <mappings>
+            <tab>User_Information__c</tab>
+        </mappings>
+        <mappings>
+            <tab>demo2__c</tab>
+        </mappings>
+        <mappings>
+            <tab>demo3__c</tab>
+        </mappings>
+        <mappings>
+            <tab>demo4__c</tab>
+        </mappings>
+        <mappings>
+            <tab>demo5__c</tab>
+        </mappings>
+        <mappings>
+            <tab>level1__c</tab>
+        </mappings>
+        <mappings>
+            <tab>level7__c</tab>
+        </mappings>
+        <mappings>
+            <tab>sam11__c</tab>
         </mappings>
         <mappings>
             <tab>standard-Account</tab>
@@ -81,19 +180,10 @@
             <tab>standard-Case</tab>
         </mappings>
         <mappings>
-            <tab>standard-ChangeRequest</tab>
-        </mappings>
-        <mappings>
             <tab>standard-Contact</tab>
         </mappings>
         <mappings>
             <tab>standard-Dashboard</tab>
-        </mappings>
-        <mappings>
-            <tab>standard-Incident</tab>
-        </mappings>
-        <mappings>
-            <tab>standard-Problem</tab>
         </mappings>
         <mappings>
             <tab>standard-home</tab>

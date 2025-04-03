@@ -1,0 +1,12 @@
+<apex:page controller="Cot1" docType="HTML-5.0" action="{!doReturnContactInfo}">
+    <apex:form >
+        <apex:pageBlock >
+        <apex:pageBlockSection >
+            <apex:input label="QueryString" type="text" value="{!QueryString}"/>
+        </apex:pageBlockSection>
+        <apex:pageblockSection >
+        hhgg
+        </apex:pageblockSection>
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>

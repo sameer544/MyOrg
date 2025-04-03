@@ -1,0 +1,6 @@
+<aura:component >
+   <aura:handler name="sampleComponentEvent" event="c:exampleComponentEvent"
+    action="{!c.handler}" />
+    
+	<c:dLightComponent />
+</aura:component>

@@ -1,0 +1,36 @@
+<apex:page Controller="dataTable_Class" docType="HTML-5.0">
+    <head>
+        <apex:includeScript value="//code.jquery.com/jquery-2.2.4.min.js"/>
+        <apex:stylesheet value="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" />
+        <apex:includeScript value="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"/>
+        
+        <script type="text/javascript">
+            $(document).ready( function () {
+    $('#table_id').DataTable();
+} );
+    </script>
+        
+    </head>
+    <body>
+    <table id="table_id" class="display">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Industry</th>
+            <th>Rating</th>
+            <th>Phone</th>
+        </tr>
+    </thead>
+    <tbody>
+        <apex:repeat value="{!accList}" var="acc">
+            <tr>
+                <td><apex:outputLink value="/{!acc.id}" target="" >{!acc.Name}</apex:outputLink></td>
+                <td>{!acc.Industry}</td>
+                <td>{!acc.Rating}</td>
+                <td>{!acc.Phone}</td>
+            </tr>
+        </apex:repeat>
+    </tbody>
+</table>
+    </body>
+</apex:page>

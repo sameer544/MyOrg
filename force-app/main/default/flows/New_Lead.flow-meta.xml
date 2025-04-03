@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>49.0</apiVersion>
+    <interviewLabel>New Lead {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>New Lead</label>
+    <processType>Flow</processType>
+    <recordCreates>
+        <name>lead_record</name>
+        <label>lead record</label>
+        <locationX>210</locationX>
+        <locationY>17</locationY>
+        <connector>
+            <targetReference>Upload_File</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Company</field>
+            <value>
+                <elementReference>Company_Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>LastName</field>
+            <value>
+                <elementReference>Last_Name</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Lead</object>
+    </recordCreates>
+    <screens>
+        <name>New_Lead</name>
+        <label>New Lead</label>
+        <locationX>32</locationX>
+        <locationY>15</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <connector>
+            <targetReference>lead_record</targetReference>
+        </connector>
+        <fields>
+            <name>Last_Name</name>
+            <dataType>String</dataType>
+            <fieldText>Last Name</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <fields>
+            <name>Company_Name</name>
+            <dataType>String</dataType>
+            <fieldText>Company Name</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Upload_File</name>
+        <label>Upload File</label>
+        <locationX>389</locationX>
+        <locationY>19</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>UploadFile</name>
+            <extensionName>forceContent:fileUpload</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>label</name>
+                <value>
+                    <stringValue>Upload Related File</stringValue>
+                </value>
+            </inputParameters>
+            <inputParameters>
+                <name>recordId</name>
+                <value>
+                    <elementReference>lead_record</elementReference>
+                </value>
+            </inputParameters>
+            <isRequired>true</isRequired>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <status>InvalidDraft</status>
+</Flow>

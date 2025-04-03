@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>validate_Multipicklist</fullName>
+    <active>true</active>
+    <errorConditionFormula>(
+If(includes( Select_User__c,&quot;Sameer&quot; ),1,0)+
+If(includes( Select_User__c,&quot;Ranjan&quot; ),1,0)+
+If(includes( Select_User__c,&quot;Subhajit&quot; ),1,0)+
+If(includes( Select_User__c,&quot;Shubham&quot; ),1,0)+
+If(includes( Select_User__c,&quot;Prajwal&quot; ),1,0))&gt;2</errorConditionFormula>
+    <errorDisplayField>Select_User__c</errorDisplayField>
+    <errorMessage>Can&apos;t Select More than two value.</errorMessage>
+</ValidationRule>

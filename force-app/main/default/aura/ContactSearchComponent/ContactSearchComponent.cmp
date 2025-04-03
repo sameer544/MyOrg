@@ -1,0 +1,18 @@
+<aura:component controller="ContactSearchComponentController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="data" type="List" />
+
+    <!-- data table attributes -->
+    <aura:attribute name="columns" type="List" />
+    <aura:attribute name="filteredData" type="List" />
+
+    <!-- filter input -->
+    <aura:attribute name="filter" type="String" />
+
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+    <lightning:card >
+    <lightning:input type="text" onkeyup="{!c.filter}" value="{!v.filter}" label="Search Contact" />
+        <div class="slds-table slds-table_col-bordered" >
+            <lightning:datatable keyField="name" columns="{!v.columns}" data="{!v.filteredData}" hideCheckboxColumn="true" />
+        </div>
+    </lightning:card>
+</aura:component>

@@ -46,18 +46,4 @@ export default class Boats extends LightningElement {
         }
     }
 
-    matchingInfo = {
-        primaryField: { fieldPath: 'Name' },
-        additionalFields: [{ fieldPath: 'BoatType__r.Name' }],
-    }
-
-    displayInfo = {
-        primaryField: { fieldPath: 'Name' },
-        additionalFields: [{ fieldPath: 'BoatType__r.Name' }],
-    }
-
-    handleChange(event){
-        this.boatId = event.target.value;
-    }
-
 }

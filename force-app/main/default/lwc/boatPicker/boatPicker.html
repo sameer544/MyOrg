@@ -3,13 +3,9 @@
         <div  class="slds-var-p-horizontal_medium">
             <div class="slds-var-m-bottom_medium">
                 <lightning-record-picker
-    label="Select a record"
-    placeholder="Search..."
-    matching-info={matchingInfo}
-    display-info={displayInfo}
-    onchange={handleChange}
-    object-api-name="Boat__c"
-></lightning-record-picker>
+                    label="Browse our inventory"
+                    placeholder="Search by boat name or type" >
+                </lightning-record-picker>
             </div>
             <div lwc:if={showBoat}>
                 <div class="tile slds-var-m-vertical_medium" >

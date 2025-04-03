@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Cross_Formula__c</fullName>
+    <externalId>false</externalId>
+    <formula>demo2__r.demo3__r.demo4__r.demo5__r.Owner:User.Contact.Account.Opportunity__r.Contract.BillingCity</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Cross Formula</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

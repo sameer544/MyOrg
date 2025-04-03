@@ -7,6 +7,44 @@
     <label>LightningInstrumentation</label>
     <navType>Standard</navType>
     <tabs>standard-LightningInstrumentation</tabs>
-    <tabs>BackUpAccountVersion__c</tabs>
+    <tabs>Student__c</tabs>
+    <tabs>Hospital__c</tabs>
+    <tabs>Personal_Infomation__c</tabs>
+    <tabs>College__c</tabs>
+    <tabs>University__c</tabs>
+    <tabs>Project__c</tabs>
+    <tabs>Consultants__c</tabs>
+    <tabs>Dummy__c</tabs>
+    <tabs>State__c</tabs>
+    <tabs>City__c</tabs>
+    <tabs>Demo1__c</tabs>
+    <tabs>demo2__c</tabs>
+    <tabs>demo3__c</tabs>
+    <tabs>demo4__c</tabs>
+    <tabs>demo5__c</tabs>
+    <tabs>Assignement__c</tabs>
+    <tabs>Indurty__c</tabs>
+    <tabs>level7__c</tabs>
+    <tabs>level1__c</tabs>
+    <tabs>sam11__c</tabs>
+    <tabs>Bankin__c</tabs>
+    <tabs>Bank__c</tabs>
+    <tabs>Example__c</tabs>
+    <tabs>Status_Object__c</tabs>
+    <tabs>New_Object_Record__c</tabs>
+    <tabs>Expense__c</tabs>
+    <tabs>Other_Info__c</tabs>
+    <tabs>Duplicate_Account_Contact__c</tabs>
+    <tabs>Opp_Duplicator__c</tabs>
+    <tabs>List_Of_Approval_Process</tabs>
+    <tabs>Invoice__c</tabs>
+    <tabs>SchemaCustom__c</tabs>
+    <tabs>ProductCategory__c</tabs>
+    <tabs>AccountCustom__c</tabs>
+    <tabs>ProductCustom__c</tabs>
+    <tabs>Marchandise__c</tabs>
+    <tabs>Line_Item__c</tabs>
+    <tabs>Case__c</tabs>
+    <tabs>User_Information__c</tabs>
     <uiType>Lightning</uiType>
 </CustomApplication>

@@ -1,0 +1,6 @@
+<aura:component>
+    
+    <aura:registerEvent name="sampleCmpEvent" type="c:ComEvent" />
+    <lightning:button  label="Click to fire the event" variant="brand" onclick="{!c.childComponentEvent}" />
+
+</aura:component>
